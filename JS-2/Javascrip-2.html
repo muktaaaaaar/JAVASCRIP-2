@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA SCRIP-2</title>
+</head>
+<body>
+    <h1>Menghitung luas dan keliling lingkaran</h1>
+    <p>Jari-jari <input type="number" id="jariJari" value="" onchange="rumus()"></p>
+    <p>Luas <input type="number" id="luas" value=""></p>
+    <p>Keliling  <input type="number" id="keliling" value=""></p>
+    <br>
+
+    <h2>Menghitung Kurs Rupiah</h2>
+    <p>DOLLAR : <input type="number" id="dollar" value="" onchange="kurs()"></p>
+    <p>RUPIAH : <input type="number" id="rupiah" value="">
+    </p>
+    <h2>Menghitung Biaya Parkir</h2>
+    <table border="1">
+        <tr>
+            <td>Jam Masuk</td>
+            <td>Jam Keluar</td>
+            <td>Lama</td>
+            <td>Keluaran Biaya</td>
+        </tr>
+        <tr>
+            <td><input type="number" value="" id="jamMasuk"></td>
+            <td><input type="number" value="" id="jamKeluar"></td>
+            <td><input type="number" value="" id="lama"></td>
+            <td><input type="number" value="" id="biayaP"></td>
+
+        </tr>
+    </table>
+    <br>
+    <button onclick="parkir()">Submit</button>
+
+
+    <h2>Menghitung Jumlah Dua Bilangan</h2>
+    <form action="" id="form1">
+        <input type="number" id="bil1" onchange="hitung()" value=""/><br>
+        <b>+</b><br>
+        <input type="number" id="bil2" onchange="hitung()" value=""/><br>
+        <b>=</b><br>
+        <input type="number" id="bil3" value=""/>
+    </form>
+
+    <script>
+        function rumus() {
+            let r = document.getElementById("jariJari").value;
+            let phi = 3.14;
+            let luas = phi*r**2;
+            let keliling = 2*phi*r;
+
+            document.getElementById("luas").value = luas;
+            document.getElementById("keliling").value = keliling;
+        }
+
+        function kurs() {
+            let dollar = document.getElementById("dollar").value;
+            let rupiah = dollar*14650;
+
+            document.getElementById("rupiah").value = rupiah;
+        }
+
+        function parkir() {
+            let masuk = document.getElementById("jamMasuk").value;
+            let keluar = document.getElementById("jamKeluar").value;
+            let lama = keluar - masuk;
+            let biaya = 0;
+            const Tarif = 3000;
+            const perJam = 1000;
+            if(lama <= 2) {
+                biaya = Tarif;
+            }else{
+                let tambahJam = lama - 2;
+                biaya= Tarif + (perJam * tambahJam);
+            }
+            document.getElementById("lama").value = lama;
+
+            let areaBiaya = document.getElementById("biayaP");
+            areaBiaya.value = biaya
+            a
+        }
+
+        function hitung() {
+            let b1 = Number(document.getElementById("bil1").value);
+            let b2 = Number(document.getElementById("bil2").value);
+            let hasil = b1 + b2;
+            document.getElementById("bil3").value = hasil;
+        }
+    </script>
+</body>
+</html> 
